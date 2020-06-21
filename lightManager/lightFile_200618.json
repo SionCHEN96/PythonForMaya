@@ -1,0 +1,40 @@
+{
+    "pointLight1": {
+        "color": [
+            1.0, 
+            1.0, 
+            1.0
+        ], 
+        "rotation": [
+            0.0, 
+            0.0, 
+            0.0
+        ], 
+        "translate": [
+            0.0, 
+            0.0, 
+            0.0
+        ], 
+        "lightType": "pointLight", 
+        "intensity": 1.0
+    }, 
+    "pointLight2": {
+        "color": [
+            1.0, 
+            1.0, 
+            1.0
+        ], 
+        "rotation": [
+            0.0, 
+            0.0, 
+            0.0
+        ], 
+        "translate": [
+            0.0, 
+            0.0, 
+            0.0
+        ], 
+        "lightType": "pointLight", 
+        "intensity": 1.0
+    }
+}

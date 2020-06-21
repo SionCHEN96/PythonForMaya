@@ -1,0 +1,163 @@
+
+    menuItem
+        -label "单个透视" 
+        -divider 0
+        -subMenu 0
+        -tearOff 0
+        -command "setNamedPanelLayout \"单个透视视图\";" 
+        -optionBox 0
+        -enable 1
+        -data 0
+        -radialPosition "N" 
+        -allowOptionBoxes 1
+        -postMenuCommandOnce 0
+        -enableCommandRepeat 1
+        -echoCommand 0
+        -italicized 0
+        -boldFont 0
+        -sourceType "mel" 
+        -longDivider 1
+        menuItem106;
+
+    menuItem
+        -label "Hypershade/渲染/透视" 
+        -divider 0
+        -subMenu 0
+        -tearOff 0
+        -command "setNamedPanelLayout \"Hypershade/渲染/透视\";" 
+        -optionBox 0
+        -enable 1
+        -data 0
+        -radialPosition "NE" 
+        -allowOptionBoxes 1
+        -postMenuCommandOnce 0
+        -enableCommandRepeat 1
+        -echoCommand 0
+        -italicized 0
+        -boldFont 0
+        -sourceType "mel" 
+        -longDivider 1
+        menuItem107;
+
+    menuItem
+        -label "Hypershade/大纲视图/透视" 
+        -divider 0
+        -subMenu 0
+        -tearOff 0
+        -command "setNamedPanelLayout \"Hypershade/大纲视图/透视\";" 
+        -optionBox 0
+        -enable 1
+        -data 0
+        -radialPosition "SE" 
+        -allowOptionBoxes 1
+        -postMenuCommandOnce 0
+        -enableCommandRepeat 1
+        -echoCommand 0
+        -italicized 0
+        -boldFont 0
+        -sourceType "mel" 
+        -longDivider 1
+        menuItem108;
+
+    menuItem
+        -label "Hypershade/透视" 
+        -divider 0
+        -subMenu 0
+        -tearOff 0
+        -command "setNamedPanelLayout \"Hypershade/透视\";" 
+        -optionBox 0
+        -enable 1
+        -data 0
+        -radialPosition "E" 
+        -allowOptionBoxes 1
+        -postMenuCommandOnce 0
+        -enableCommandRepeat 1
+        -echoCommand 0
+        -italicized 0
+        -boldFont 0
+        -sourceType "mel" 
+        -longDivider 1
+        menuItem109;
+
+    menuItem
+        -label "切换大纲视图" 
+        -divider 0
+        -subMenu 0
+        -tearOff 0
+        -command "ToggleOutliner" 
+        -optionBox 0
+        -enable 1
+        -data 0
+        -radialPosition "S" 
+        -allowOptionBoxes 1
+        -postMenuCommandOnce 0
+        -enableCommandRepeat 1
+        -echoCommand 0
+        -italicized 0
+        -boldFont 0
+        -sourceType "mel" 
+        -longDivider 1
+        menuItem110;
+
+    menuItem
+        -label "透视/曲线图/大纲视图" 
+        -divider 0
+        -subMenu 0
+        -tearOff 0
+        -command "setNamedPanelLayout \"透视/曲线图/大纲视图\";" 
+        -optionBox 0
+        -enable 1
+        -data 0
+        -radialPosition "SW" 
+        -allowOptionBoxes 1
+        -postMenuCommandOnce 0
+        -enableCommandRepeat 1
+        -echoCommand 0
+        -italicized 0
+        -boldFont 0
+        -sourceType "mel" 
+        -longDivider 1
+        menuItem111;
+
+    menuItem
+        -label "透视/曲线图" 
+        -divider 0
+        -subMenu 0
+        -tearOff 0
+        -command "setNamedPanelLayout \"透视/曲线图\";" 
+        -optionBox 0
+        -enable 1
+        -data 0
+        -radialPosition "W" 
+        -allowOptionBoxes 1
+        -postMenuCommandOnce 0
+        -enableCommandRepeat 1
+        -echoCommand 0
+        -italicized 0
+        -boldFont 0
+        -sourceType "mel" 
+        -longDivider 1
+        menuItem112;
+
+    menuItem
+        -label "透视/关系编辑器" 
+        -divider 0
+        -subMenu 0
+        -tearOff 0
+        -command "setNamedPanelLayout \"透视/关系编辑器\";" 
+        -optionBox 0
+        -enable 1
+        -data 0
+        -radialPosition "NW" 
+        -allowOptionBoxes 1
+        -postMenuCommandOnce 0
+        -enableCommandRepeat 1
+        -echoCommand 0
+        -italicized 0
+        -boldFont 0
+        -sourceType "mel" 
+        -longDivider 1
+        menuItem113;
+
+setParent -m ..;
+

@@ -1,0 +1,254 @@
+
+    menuItem
+        -label "帮助行" 
+        -divider 0
+        -subMenu 0
+        -tearOff 0
+        -command "toggleUIComponentVisibility \"Help Line\"; updatePrefsMenu" 
+        -optionBox 0
+        -enable 1
+        -data 0
+        -radialPosition "N" 
+        -allowOptionBoxes 1
+        -postMenuCommandOnce 0
+        -enableCommandRepeat 1
+        -echoCommand 0
+        -annotation "开启/关闭帮助行" 
+        -italicized 0
+        -boldFont 0
+        -sourceType "mel" 
+        -longDivider 1
+        menuItem122;
+
+    menuItem
+        -label "状态行" 
+        -divider 0
+        -subMenu 0
+        -tearOff 0
+        -command "toggleUIComponentVisibility \"Status Line\"; updatePrefsMenu" 
+        -optionBox 0
+        -enable 1
+        -data 0
+        -radialPosition "NE" 
+        -allowOptionBoxes 1
+        -postMenuCommandOnce 0
+        -enableCommandRepeat 1
+        -echoCommand 0
+        -annotation "开启/关闭状态行" 
+        -italicized 0
+        -boldFont 0
+        -sourceType "mel" 
+        -longDivider 1
+        menuItem123;
+
+    menuItem
+        -label "属性" 
+        -divider 0
+        -subMenu 1
+        -tearOff 0
+        -optionBox 0
+        -enable 1
+        -data 0
+        -radialPosition "E" 
+        -allowOptionBoxes 1
+        -enableCommandRepeat 1
+        -annotation "编辑属性" 
+        -italicized 0
+        -boldFont 0
+        -sourceType "mel" 
+        -longDivider 1
+        menuItem124;
+
+        menuItem
+            -label "通道盒" 
+            -divider 0
+            -subMenu 0
+            -tearOff 0
+            -command "if (`optionVar -q channelsLayersSeparate`) {\r\n\ttoggleUIComponentVisibility \"Channel Box\";\r\n} else {\r\n\ttoggleUIComponentVisibility \"Channel Box / Layer Editor\";\r\n}\r\n; " 
+            -optionBox 0
+            -enable 1
+            -data 0
+            -radialPosition "E" 
+            -allowOptionBoxes 1
+            -postMenuCommandOnce 0
+            -enableCommandRepeat 1
+            -echoCommand 0
+            -annotation "开启/关闭通道盒" 
+            -italicized 0
+            -boldFont 0
+            -sourceType "mel" 
+            -longDivider 1
+            menuItem125;
+
+        menuItem
+            -label "层编辑器" 
+            -divider 0
+            -subMenu 0
+            -tearOff 0
+            -command "if (`optionVar -q channelsLayersSeparate`) {\r\n\ttoggleUIComponentVisibility \"Layer Editor\";\r\n} else {\r\n\ttoggleUIComponentVisibility \"Channel Box / Layer Editor\";\r\n}\r\n; " 
+            -optionBox 0
+            -enable 1
+            -data 0
+            -radialPosition "S" 
+            -allowOptionBoxes 1
+            -postMenuCommandOnce 0
+            -enableCommandRepeat 1
+            -echoCommand 0
+            -annotation "开启/关闭层编辑器" 
+            -italicized 0
+            -boldFont 0
+            -sourceType "mel" 
+            -longDivider 1
+            menuItem126;
+
+        menuItem
+            -label "属性编辑器" 
+            -divider 0
+            -subMenu 0
+            -tearOff 0
+            -command "toggleUIComponentVisibility \"Attribute Editor\" " 
+            -optionBox 0
+            -enable 1
+            -data 0
+            -radialPosition "W" 
+            -allowOptionBoxes 1
+            -postMenuCommandOnce 0
+            -enableCommandRepeat 1
+            -echoCommand 0
+            -annotation "开启/关闭属性编辑器" 
+            -italicized 0
+            -boldFont 0
+            -sourceType "mel" 
+            -longDivider 1
+            menuItem127;
+
+        menuItem
+            -label "工具设置" 
+            -divider 0
+            -subMenu 0
+            -tearOff 0
+            -command "toggleUIComponentVisibility \"Tool Settings\" " 
+            -optionBox 0
+            -enable 1
+            -data 0
+            -radialPosition "N" 
+            -allowOptionBoxes 1
+            -postMenuCommandOnce 0
+            -enableCommandRepeat 1
+            -echoCommand 0
+            -annotation "开启/关闭工具设置" 
+            -italicized 0
+            -boldFont 0
+            -sourceType "mel" 
+            -longDivider 1
+            menuItem128;
+
+    setParent -m ..;
+
+    menuItem
+        -label "工具箱" 
+        -divider 0
+        -subMenu 0
+        -tearOff 0
+        -command "toggleUIComponentVisibility \"Tool Box\"; updatePrefsMenu" 
+        -optionBox 0
+        -enable 1
+        -data 0
+        -radialPosition "SE" 
+        -allowOptionBoxes 1
+        -postMenuCommandOnce 0
+        -enableCommandRepeat 1
+        -echoCommand 0
+        -annotation "开启/关闭工具箱" 
+        -italicized 0
+        -boldFont 0
+        -sourceType "mel" 
+        -longDivider 1
+        menuItem129;
+
+    menuItem
+        -label "时间滑块" 
+        -divider 0
+        -subMenu 0
+        -tearOff 0
+        -command "toggleUIComponentVisibility \"Time Slider\"; updatePrefsMenu" 
+        -optionBox 0
+        -enable 1
+        -data 0
+        -radialPosition "S" 
+        -allowOptionBoxes 1
+        -postMenuCommandOnce 0
+        -enableCommandRepeat 1
+        -echoCommand 0
+        -annotation "开启/关闭时间滑块" 
+        -italicized 0
+        -boldFont 0
+        -sourceType "mel" 
+        -longDivider 1
+        menuItem130;
+
+    menuItem
+        -label "范围滑块" 
+        -divider 0
+        -subMenu 0
+        -tearOff 0
+        -command "toggleUIComponentVisibility \"Range Slider\"; updatePrefsMenu" 
+        -optionBox 0
+        -enable 1
+        -data 0
+        -radialPosition "SW" 
+        -allowOptionBoxes 1
+        -postMenuCommandOnce 0
+        -enableCommandRepeat 1
+        -echoCommand 0
+        -annotation "开启/关闭范围滑块" 
+        -italicized 0
+        -boldFont 0
+        -sourceType "mel" 
+        -longDivider 1
+        menuItem131;
+
+    menuItem
+        -label "工具架" 
+        -divider 0
+        -subMenu 0
+        -tearOff 0
+        -command "toggleUIComponentVisibility \"Shelf\"; updatePrefsMenu" 
+        -optionBox 0
+        -enable 1
+        -data 0
+        -radialPosition "W" 
+        -allowOptionBoxes 1
+        -postMenuCommandOnce 0
+        -enableCommandRepeat 1
+        -echoCommand 0
+        -annotation "开启/关闭工具架" 
+        -italicized 0
+        -boldFont 0
+        -sourceType "mel" 
+        -longDivider 1
+        menuItem132;
+
+    menuItem
+        -label "命令行" 
+        -divider 0
+        -subMenu 0
+        -tearOff 0
+        -command "toggleUIComponentVisibility \"Command Line\"; updatePrefsMenu" 
+        -optionBox 0
+        -enable 1
+        -data 0
+        -radialPosition "NW" 
+        -allowOptionBoxes 1
+        -postMenuCommandOnce 0
+        -enableCommandRepeat 1
+        -echoCommand 0
+        -annotation "开启/关闭命令行" 
+        -italicized 0
+        -boldFont 0
+        -sourceType "mel" 
+        -longDivider 1
+        menuItem133;
+
+setParent -m ..;
+

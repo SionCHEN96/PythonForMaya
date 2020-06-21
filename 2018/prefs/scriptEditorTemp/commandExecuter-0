@@ -1,0 +1,3 @@
+import lightingManager
+reload(lightingManager)
+lightingManager.LightManager(dock=False)

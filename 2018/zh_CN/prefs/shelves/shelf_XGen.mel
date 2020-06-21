@@ -1,0 +1,1062 @@
+global proc shelf_XGen () {
+    global string $gBuffStr;
+    global string $gBuffStr0;
+    global string $gBuffStr1;
+
+
+    shelfButton
+        -enableCommandRepeat 1
+        -enable 1
+        -width 35
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "打开 XGen 窗口" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "打开描述编辑器" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "D:/Autodesk/Maya2018/plug-ins/xgen//icons/xgDEditor.png" 
+        -image1 "D:/Autodesk/Maya2018/plug-ins/xgen//icons/xgDEditor.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -version "2015" 
+        -command "if (!`pluginInfo -q -loaded xgenToolkit`) loadPlugin xgenToolkit.mll;XgCreateDescriptionEditor" 
+        -sourceType "mel" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -enable 1
+        -width 35
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "更新 XGen 预览" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "更新预览" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "D:/Autodesk/Maya2018/plug-ins/xgen//icons/xgPreview.png" 
+        -image1 "D:/Autodesk/Maya2018/plug-ins/xgen//icons/xgPreview.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -version "2015" 
+        -command "XgPreview" 
+        -sourceType "mel" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -enable 1
+        -width 35
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "清除 XGen 预览" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "清除预览" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "D:/Autodesk/Maya2018/plug-ins/xgen//icons/xgPreviewClear.png" 
+        -image1 "D:/Autodesk/Maya2018/plug-ins/xgen//icons/xgPreviewClear.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -version "2015" 
+        -command "python(\"xgui.createDescriptionEditor(False).preview(True)\")" 
+        -sourceType "mel" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -enable 1
+        -width 35
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "创建新的 XGen 描述" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "创建描述" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "D:/Autodesk/Maya2018/plug-ins/xgen//icons/xgCreateDescription.png" 
+        -image1 "D:/Autodesk/Maya2018/plug-ins/xgen//icons/xgCreateDescription.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -version "2015" 
+        -command "if (!`pluginInfo -q -loaded xgenToolkit`) loadPlugin xgenToolkit.mll;XgCreateDescription" 
+        -sourceType "mel" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -enable 1
+        -width 35
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "面片绑定菜单。" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "绑定面片" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "D:/Autodesk/Maya2018/plug-ins/xgen//icons/xgBindFaces.png" 
+        -image1 "D:/Autodesk/Maya2018/plug-ins/xgen//icons/xgBindFaces.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -version "2015" 
+        -command "python(\"from PySide2 import QtGui, QtCore, QtWidgets\\nfrom PySide2.QtGui import *\\nfrom PySide2.QtCore import *\\nfrom PySide2.QtWidgets import *\\nm = QMenu()\\nm.addAction(u\\\"添加选定面\\\",  lambda: xgui.createDescriptionEditor(False).modifyBinding(\\\"Append\\\") )\\nm.addAction(u\\\"替换为选定面\\\", lambda: xgui.createDescriptionEditor(False).modifyBinding(\\\"Replace\\\") )\\nm.addAction(u\\\"移除选定面\\\",  lambda: xgui.createDescriptionEditor(False).modifyBinding(\\\"Remove\\\") )\\nm.addAction(u\\\"基于贴图绑定面...\\\",     lambda: xgui.createDescriptionEditor(False).modifyBinding(\\\"Map\\\") )\\nm.addSeparator()\\nm.addAction(u\\\"选择边界面\\\",  lambda: xgui.createDescriptionEditor(False).selectBinding() )\\nm.popup(QCursor.pos())\\n\")" 
+        -sourceType "mel" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -enable 1
+        -width 35
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "添加或移动导向" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "添加/移动导向" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "D:/Autodesk/Maya2018/plug-ins/xgen//icons/xgGuideContext.png" 
+        -image1 "D:/Autodesk/Maya2018/plug-ins/xgen//icons/xgGuideContext.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -version "2015" 
+        -command "XgGuideTool" 
+        -sourceType "mel" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -enable 1
+        -width 35
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "隐藏/显示当前 XGen 描述的导向" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "切换导向可见性" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "D:/Autodesk/Maya2018/plug-ins/xgen//icons/xgToggleGuide.png" 
+        -image1 "D:/Autodesk/Maya2018/plug-ins/xgen//icons/xgToggleGuide.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -version "2015" 
+        -command "python(\"xgen.toggleGuideDisplay(xgui.createDescriptionEditor(False).currentDescription())\")" 
+        -sourceType "mel" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -enable 1
+        -width 35
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "启用和禁用导向的可选性" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "切换导向可选性" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "D:/Autodesk/Maya2018/plug-ins/xgen//icons/xgToggleGuideReference.png" 
+        -image1 "D:/Autodesk/Maya2018/plug-ins/xgen//icons/xgToggleGuideReference.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -version "2015" 
+        -command "python(\"xgen.toggleGuideReference(xgui.createDescriptionEditor(False).currentDescription())\")" 
+        -sourceType "mel" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -enable 1
+        -width 35
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "绕 X 轴镜像选定导向" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "镜像导向 X 轴" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "D:/Autodesk/Maya2018/plug-ins/xgen//icons/xgFlipGuides.png" 
+        -image1 "D:/Autodesk/Maya2018/plug-ins/xgen//icons/xgFlipGuides.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -version "2015" 
+        -command "xgmFlipGuides( python(\"xgui.createDescriptionEditor(False).currentDescription()\") )" 
+        -sourceType "mel" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -enable 1
+        -width 35
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "将 XGen 面片可见性匹配至几何体可见性。" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "同步面片可见性" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "D:/Autodesk/Maya2018/plug-ins/xgen//icons/xgSyncPatchVisibility.png" 
+        -image1 "D:/Autodesk/Maya2018/plug-ins/xgen//icons/xgSyncPatchVisibility.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -version "2015" 
+        -command "xgmSyncPatchVisibility" 
+        -sourceType "mel" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -enable 1
+        -width 35
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "翻转选定面片及其关联的几何体" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "翻转选定项" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "D:/Autodesk/Maya2018/plug-ins/xgen//icons/xgSelectionToggle.png" 
+        -image1 "D:/Autodesk/Maya2018/plug-ins/xgen//icons/xgSelectionToggle.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -version "2015" 
+        -command "python(\"xgen.selectionToggle(xgui.createDescriptionEditor(False).currentDescription())\")" 
+        -sourceType "mel" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -enable 1
+        -width 35
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "选择基本体\n使用鼠标中键隔离基本体" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "选择基本体" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "D:/Autodesk/Maya2018/plug-ins/xgen//icons/xgPrimSelection.png" 
+        -image1 "D:/Autodesk/Maya2018/plug-ins/xgen//icons/xgPrimSelection.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -version "2015" 
+        -command "python(\"xgui.createDescriptionEditor(False).primSelectionContext()\")" 
+        -sourceType "mel" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -enable 1
+        -width 35
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "消隐选定基本体\n可以在“生成器”选项卡中找到多个消隐选项" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "消隐基本体" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "D:/Autodesk/Maya2018/plug-ins/xgen//icons/xgCullPrimContextSelect.png" 
+        -image1 "D:/Autodesk/Maya2018/plug-ins/xgen//icons/xgCullPrimContextSelect.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -version "2015" 
+        -command "python(\"xgui.createDescriptionEditor(False).cullSelectedPrimitives()\")" 
+        -sourceType "mel" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -enable 1
+        -width 35
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "雕刻导向" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "雕刻导向" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "D:/Autodesk/Maya2018/plug-ins/xgen//icons/xgGuideSculptTool.png" 
+        -image1 "D:/Autodesk/Maya2018/plug-ins/xgen//icons/xgGuideSculptTool.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -version "2016" 
+        -command "python(\"xgui.createDescriptionEditor(False).guideSculptContext(False)\")" 
+        -sourceType "mel" 
+        -doubleClickCommand "python(\"xgui.createDescriptionEditor(False).guideSculptContext(True)\")" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -enable 1
+        -width 35
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "将基本体转化为多边形" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "将基本体转化为多边形" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "D:/Autodesk/Maya2018/plug-ins/xgen//icons/xgConvertToPoly.png" 
+        -image1 "D:/Autodesk/Maya2018/plug-ins/xgen//icons/xgConvertToPoly.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -version "2017" 
+        -command "python(\"import xgenm.xmaya.xgmConvertPrimToPolygon as cpp;cpp.convertPrimToPolygon(False)\")" 
+        -sourceType "mel" 
+        -doubleClickCommand "python(\"import xgenm.xmaya.xgmConvertPrimToPolygon as cpp;cpp.convertPrimToPolygon(True)\")" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    separator
+        -enable 1
+        -width 34
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "XGenSeparator" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -style "shelf" 
+        -horizontal 0
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -enable 1
+        -width 35
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "交互式修饰编辑器" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "交互式修饰编辑器" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "D:/Autodesk/Maya2018/plug-ins/xgen//icons/xgIG_editor.png" 
+        -image1 "D:/Autodesk/Maya2018/plug-ins/xgen//icons/xgIG_editor.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -version "2017" 
+        -command "XgCreateIgSplineEditor" 
+        -sourceType "mel" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -enable 1
+        -width 35
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "创建交互式修饰样条线" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "创建交互式修饰样条线" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "D:/Autodesk/Maya2018/plug-ins/xgen//icons/xgIG_creation.png" 
+        -image1 "D:/Autodesk/Maya2018/plug-ins/xgen//icons/xgIG_creation.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -version "2017" 
+        -command "XgmCreateInteractiveGroomSplinesOption" 
+        -sourceType "mel" 
+        -doubleClickCommand "XgmCreateInteractiveGroomSplinesOption" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -enable 1
+        -width 35
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "密度笔刷" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "密度笔刷" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "D:/Autodesk/Maya2018/plug-ins/xgen//icons/xgIG_density.png" 
+        -image1 "D:/Autodesk/Maya2018/plug-ins/xgen//icons/xgIG_density.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -version "2017" 
+        -command "XgmSetDensityBrushTool" 
+        -sourceType "mel" 
+        -doubleClickCommand "XgmSetDensityBrushToolOption" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -enable 1
+        -width 35
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "放置笔刷" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "放置笔刷" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "D:/Autodesk/Maya2018/plug-ins/xgen//icons/xgIG_place.png" 
+        -image1 "D:/Autodesk/Maya2018/plug-ins/xgen//icons/xgIG_place.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -version "2017" 
+        -command "XgmSetPlaceBrushTool" 
+        -sourceType "mel" 
+        -doubleClickCommand "XgmSetPlaceBrushToolOption" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -enable 1
+        -width 35
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "长度笔刷" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "长度笔刷" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "D:/Autodesk/Maya2018/plug-ins/xgen//icons/xgIG_length.png" 
+        -image1 "D:/Autodesk/Maya2018/plug-ins/xgen//icons/xgIG_length.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -version "2017" 
+        -command "XgmSetLengthBrushTool" 
+        -sourceType "mel" 
+        -doubleClickCommand "XgmSetLengthBrushToolOption" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -enable 1
+        -width 35
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "修剪笔刷" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "修剪笔刷" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "D:/Autodesk/Maya2018/plug-ins/xgen//icons/xgIG_cut.png" 
+        -image1 "D:/Autodesk/Maya2018/plug-ins/xgen//icons/xgIG_cut.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -version "2017" 
+        -command "XgmSetCutBrushTool" 
+        -sourceType "mel" 
+        -doubleClickCommand "XgmSetCutBrushToolOption" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -enable 1
+        -width 35
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "宽度笔刷" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "宽度笔刷" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "D:/Autodesk/Maya2018/plug-ins/xgen//icons/xgIG_width.png" 
+        -image1 "D:/Autodesk/Maya2018/plug-ins/xgen//icons/xgIG_width.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -version "2017" 
+        -command "XgmSetWidthBrushTool" 
+        -sourceType "mel" 
+        -doubleClickCommand "XgmSetWidthBrushToolOption" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -enable 1
+        -width 35
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "扭曲笔刷" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "扭曲笔刷" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "D:/Autodesk/Maya2018/plug-ins/xgen//icons/xgIG_twist.png" 
+        -image1 "D:/Autodesk/Maya2018/plug-ins/xgen//icons/xgIG_twist.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -version "2017" 
+        -command "XgmSetDirectionBrushTool" 
+        -sourceType "mel" 
+        -doubleClickCommand "XgmSetDirectionBrushToolOption" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -enable 1
+        -width 35
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "梳理笔刷" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "梳理笔刷" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "D:/Autodesk/Maya2018/plug-ins/xgen//icons/xgIG_comb.png" 
+        -image1 "D:/Autodesk/Maya2018/plug-ins/xgen//icons/xgIG_comb.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -version "2017" 
+        -command "XgmSetCombBrushTool" 
+        -sourceType "mel" 
+        -doubleClickCommand "XgmSetCombBrushToolOption" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -enable 1
+        -width 35
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "抓取笔刷" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "抓取笔刷" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "D:/Autodesk/Maya2018/plug-ins/xgen//icons/xgIG_grab.png" 
+        -image1 "D:/Autodesk/Maya2018/plug-ins/xgen//icons/xgIG_grab.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -version "2017" 
+        -command "XgmSetGrabBrushTool" 
+        -sourceType "mel" 
+        -doubleClickCommand "XgmSetGrabBrushToolOption" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -enable 1
+        -width 35
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "平滑笔刷" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "平滑笔刷" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "D:/Autodesk/Maya2018/plug-ins/xgen//icons/xgIG_smooth.png" 
+        -image1 "D:/Autodesk/Maya2018/plug-ins/xgen//icons/xgIG_smooth.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -version "2017" 
+        -command "XgmSetSmoothBrushTool" 
+        -sourceType "mel" 
+        -doubleClickCommand "XgmSetSmoothBrushToolOption" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -enable 1
+        -width 35
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "噪波笔刷" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "噪波笔刷" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "D:/Autodesk/Maya2018/plug-ins/xgen//icons/xgIG_noise.png" 
+        -image1 "D:/Autodesk/Maya2018/plug-ins/xgen//icons/xgIG_noise.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -version "2017" 
+        -command "XgmSetNoiseBrushTool" 
+        -sourceType "mel" 
+        -doubleClickCommand "XgmSetNoiseBrushToolOption" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -enable 1
+        -width 35
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "成束笔刷" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "成束笔刷" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "D:/Autodesk/Maya2018/plug-ins/xgen//icons/xgIG_clump.png" 
+        -image1 "D:/Autodesk/Maya2018/plug-ins/xgen//icons/xgIG_clump.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -version "2017" 
+        -command "XgmSetClumpBrushTool" 
+        -sourceType "mel" 
+        -doubleClickCommand "XgmSetClumpBrushToolOption" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -enable 1
+        -width 35
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "分隔笔刷" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "分隔笔刷" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "D:/Autodesk/Maya2018/plug-ins/xgen//icons/xgIG_part.png" 
+        -image1 "D:/Autodesk/Maya2018/plug-ins/xgen//icons/xgIG_part.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -version "2017" 
+        -command "XgmSetPartBrushTool" 
+        -sourceType "mel" 
+        -doubleClickCommand "XgmSetPartBrushToolOption" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -enable 1
+        -width 35
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "冻结笔刷" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "冻结笔刷" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "D:/Autodesk/Maya2018/plug-ins/xgen//icons/xgIG_freeze.png" 
+        -image1 "D:/Autodesk/Maya2018/plug-ins/xgen//icons/xgIG_freeze.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -version "2017" 
+        -command "XgmSetFreezeBrushTool" 
+        -sourceType "mel" 
+        -doubleClickCommand "XgmSetFreezeBrushToolOption" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -enable 1
+        -width 35
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "选择笔刷" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "选择笔刷" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "D:/Autodesk/Maya2018/plug-ins/xgen//icons/xgIG_select.png" 
+        -image1 "D:/Autodesk/Maya2018/plug-ins/xgen//icons/xgIG_select.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -version "2017" 
+        -command "XgmSetSelectBrushTool" 
+        -sourceType "mel" 
+        -doubleClickCommand "XgmSetSelectBrushToolOption" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+
+} 

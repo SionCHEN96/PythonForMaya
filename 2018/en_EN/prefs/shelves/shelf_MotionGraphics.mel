@@ -1,0 +1,808 @@
+global proc shelf_MotionGraphics () {
+    global string $gBuffStr;
+    global string $gBuffStr0;
+    global string $gBuffStr1;
+
+
+    shelfButton
+        -enableCommandRepeat 1
+        -enable 1
+        -width 35
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "创建 MASH 网络: 创建 MASH 网络" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "创建 MASH 网络" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "MASH_CreateNetwork.png" 
+        -image1 "MASH_CreateNetwork.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -command "MASHnewNetwork(\"MASH#\");" 
+        -sourceType "mel" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    separator
+        -enable 1
+        -width 34
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -style "shelf" 
+        -horizontal 0
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -enable 1
+        -width 35
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "MASH 编辑器: MASH 编辑器" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "MASH 编辑器" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "MASH_Editor.png" 
+        -image1 "MASH_Editor.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -command "MASHOutliner;" 
+        -sourceType "mel" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -enable 1
+        -width 35
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "将 MASH 连接到类型/SVG: 将 MASH 连接到类型/SVG" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "将 MASH 连接到类型/SVG" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "MASH_ConnectToType.png" 
+        -image1 "MASH_ConnectToType.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -command "MASHconnectToType;" 
+        -sourceType "mel" 
+        -commandRepeatable 1
+        -flat 1
+        -mi "Create Mesh from Points" ( "MASHcreateMeshFromPointsEntry" )
+        -mi "Create MASH Points Node" ( "MASHaddPointsNode" )
+        -mi "Connect nParticles to MASH" ( "MASHnNetworkConnect" )
+        -mi "Add Trails to Particles" ( "MASHaddTrailsToParticles" )
+        -mi "Switch MASH Geometry Type" ( "MASHswitchGeometryType" )
+        -mi "Create Instancer Pivot" ( "createInstancerPivot" )
+        -mi "Bake Instancer to objects" ( "MASHBakeGUI" )
+        -mi "Breakout Utility" ( "MASHsetUpBreakoutUI" )
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -enable 1
+        -width 35
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "添加壳动力学" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "添加壳动力学" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "MASH_ShellDynamics.png" 
+        -image1 "MASH_ShellDynamics.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -command "MASHAddShellDynamics;" 
+        -sourceType "mel" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    separator
+        -enable 1
+        -width 34
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -style "shelf" 
+        -horizontal 0
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -enable 1
+        -width 35
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "多边形球体: 在栅格上创建多边形球体" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "多边形球体" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "polySphere.png" 
+        -image1 "polySphere.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -command "CreatePolygonSphere" 
+        -sourceType "mel" 
+        -doubleClickCommand "CreatePolygonSphereOptions" 
+        -commandRepeatable 1
+        -flat 1
+        -mi "创建立方体" ( "CreatePolygonCube" )
+        -mi "创建圆柱体" ( "CreatePolygonCylinder" )
+        -mi "创建圆锥体" ( "CreatePolygonCone" )
+        -mi "创建圆环" ( "CreatePolygonTorus" )
+        -mi "创建平面" ( "CreatePolygonPlane" )
+        -mi "Create Disc" ( "CreatePolygonDisc" )
+        -mi "创建柏拉图多面体" ( "performPolyPrimitive PlatonicSolid 0" )
+        -mi "创建棱锥" ( "CreatePolygonPyramid" )
+        -mi "创建棱柱" ( "CreatePolygonPrism" )
+        -mi "创建管道" ( "CreatePolygonPipe" )
+        -mi "创建螺旋线" ( "CreatePolygonHelix" )
+        -mi "Create Gear" ( "CreatePolygonGear" )
+        -mi "创建足球" ( "CreatePolygonSoccerBall" )
+        -mi "Create Super Ellipse" ( "CreatePolygonSuperEllipse" )
+        -mi "Create Spherical Harmonics" ( "CreatePolygonSphericalHarmonics" )
+        -mi "Create Ultra Shape" ( "CreatePolygonUltraShape" )
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -enable 1
+        -width 35
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "EP 曲线工具: 通过指定编辑点在栅格或激活的曲面上创建曲线" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "EP 曲线工具" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "curveEP.png" 
+        -image1 "curveEP.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -command "EPCurveTool" 
+        -sourceType "mel" 
+        -doubleClickCommand "EPCurveToolOptions" 
+        -commandRepeatable 1
+        -flat 1
+        -mi "铅笔曲线工具" ( "PencilCurveTool" )
+        -mi "Bezier 曲线工具" ( "CreateBezierCurveTool" )
+        -mi "CV 曲线工具" ( "CVCurveTool" )
+        -mi "三点圆弧" ( "ThreePointArcTool" )
+        -mi "两点圆弧" ( "TwoPointArcTool" )
+        -mi "创建圆形" ( "CreateNURBSCircle" )
+        -mi "创建方形" ( "CreateNURBSSquare" )
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -enable 1
+        -width 35
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "多边形类型: 在栅格上创建多边形文本" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "多边形类型" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "polyType.png" 
+        -image1 "polyType.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -command "CreatePolygonType()" 
+        -sourceType "mel" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -enable 1
+        -width 35
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "SVG: 使用剪贴板中的可扩展向量图形或导入的 SVG 文件创建多边形" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "SVG" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "polySVG.png" 
+        -image1 "polySVG.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -command "CreatePolygonSVG()" 
+        -sourceType "mel" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -enable 1
+        -width 35
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "显示建模工具包" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "显示建模工具包" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "shelf_modelingToolkit.png" 
+        -image1 "shelf_modelingToolkit.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -command "showModelingToolkit" 
+        -sourceType "mel" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    separator
+        -enable 1
+        -width 34
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -style "shelf" 
+        -horizontal 0
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -enable 1
+        -width 35
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "弯曲: 选择要弯曲的对象" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "弯曲" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "bendNLD.png" 
+        -image1 "bendNLD.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -command "Bend" 
+        -sourceType "mel" 
+        -commandRepeatable 1
+        -flat 1
+        -mi "Blend Deformer" ( "MASHaddBlendDeformer" )
+        -mi "Jiggle Deformer" ( "MASHaddJiggleDeformer" )
+        -mi "扩张" ( "Flare" )
+        -mi "正弦" ( "Sine" )
+        -mi "挤压" ( "Squash" )
+        -mi "扭曲" ( "Twist" )
+        -mi "波浪" ( "Wave" )
+        -mi "抖动变形器" ( "CreateJiggleDeformer" )
+        -mi "包裹" ( "CreateWrap" )
+        -mi "收缩包裹" ( "CreateShrinkWrap" )
+        -mi "褶皱" ( "WrinkleTool" )
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -enable 1
+        -width 35
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "纹理变形器: 选择到纹理变形器的对象" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "纹理变形器" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "paintTextureDeformer.png" 
+        -image1 "paintTextureDeformer.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -command "CreateTextureDeformer" 
+        -sourceType "mel" 
+        -doubleClickCommand "CreateTextureDeformerOptions" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -enable 1
+        -width 35
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "混合变形: 选择要进行混合的两个或更多对象；最后选择基础形状" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "混合变形" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "blendShape.png" 
+        -image1 "blendShape.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -command "CreateBlendShape" 
+        -sourceType "mel" 
+        -doubleClickCommand "CreateBlendShapeOptions" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -enable 1
+        -width 35
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "曲线扭曲: 沿路径变形。选择第一个要变形的对象，然后将 NURBS 曲线作为路径。" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "曲线扭曲" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "CurveWarp.png" 
+        -image1 "CurveWarp.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -command "createCurveWarp" 
+        -sourceType "mel" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    separator
+        -enable 1
+        -width 34
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -style "shelf" 
+        -horizontal 0
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -enable 1
+        -width 35
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "摄影机: 在栅格上创建摄影机" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "摄影机" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "view.png" 
+        -image1 "view.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -command "CreateCameraOnly" 
+        -sourceType "mel" 
+        -doubleClickCommand "CreateCameraOnlyOptions" 
+        -commandRepeatable 1
+        -flat 1
+        -mi "摄影机和目标" ( "CreateCameraAim" )
+        -mi "摄影机、目标和向上方向" ( "CreateCameraAimUp" )
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -enable 1
+        -width 35
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Ambient Light: 在栅格或激活的曲面上创建环境光" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Ambient Light" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "ambientlight.png" 
+        -image1 "ambientlight.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -command "CreateAmbientLight" 
+        -sourceType "mel" 
+        -doubleClickCommand "CreateAmbientLightOptions" 
+        -commandRepeatable 1
+        -flat 1
+        -mi "Directional Light" ( "CreateDirectionalLight" )
+        -mi "Point Light" ( "CreatePointLight" )
+        -mi "Spot Light" ( "CreateSpotLight" )
+        -mi "Area Light" ( "CreateAreaLight" )
+        -mi "Volume Light " ( "CreateVolumeLight" )
+    ;
+    separator
+        -enable 1
+        -width 34
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -style "shelf" 
+        -horizontal 0
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -enable 1
+        -width 35
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "发射器: 在栅格或激活的对象上创建 nParticle 发射器" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "发射器" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "posEmitter.png" 
+        -image1 "posEmitter.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -command "NCreateEmitter" 
+        -sourceType "mel" 
+        -doubleClickCommand "NCreateEmitterOptions" 
+        -commandRepeatable 1
+        -flat 1
+        -mi "Emit from Object" ( "NEmitFromObject" )
+        -mi "Fill Object" ( "ParticleFill" )
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -enable 1
+        -width 35
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "针对选定的网格，创建 nCloth" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "创建 nCloth" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "nClothCreate.png" 
+        -image1 "nClothCreate.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -command "doCreateNCloth 0" 
+        -sourceType "mel" 
+        -doubleClickCommand "nClothCreateOptions" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -enable 1
+        -width 35
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "柔体: 选择几何体对象以创建柔体" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "柔体" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "soft.png" 
+        -image1 "soft.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -command "CreateNSoftBody" 
+        -sourceType "mel" 
+        -doubleClickCommand "CreateNSoftBodyOptions" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -enable 1
+        -width 35
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "径向: 创建径向场。选择该场要影响的对象" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "径向" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "posRadial.png" 
+        -image1 "posRadial.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -command "Radial" 
+        -sourceType "mel" 
+        -doubleClickCommand "RadialOptions" 
+        -commandRepeatable 1
+        -flat 1
+        -mi "阻力" ( "Drag" )
+        -mi "湍流" ( "Turbulence" )
+        -mi "重力" ( "Gravity" )
+        -mi "牛顿" ( "Newton" )
+        -mi "一致" ( "Uniform" )
+        -mi "漩涡" ( "Vortex" )
+        -mi "空气" ( "Air" )
+        -mi "弹簧" ( "CreateSpring" )
+    ;
+    separator
+        -enable 1
+        -width 34
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -style "shelf" 
+        -horizontal 0
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -enable 1
+        -width 35
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "设置关键帧: 选择要设置关键帧的对象" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "设置关键帧" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "setKeyframe.png" 
+        -image1 "setKeyframe.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -command "SetKey" 
+        -sourceType "mel" 
+        -commandRepeatable 1
+        -flat 1
+        -mi "设置动画关键帧" ( "SetKeyAnimated" )
+        -mi "设置平移关键帧" ( "SetKeyTranslate" )
+        -mi "设置旋转关键帧" ( "SetKeyRotate" )
+        -mi "设置缩放关键帧" ( "SetKeyScale" )
+        -mi "约束父对象" ( "ParentConstraint" )
+        -mi "约束点" ( "PointConstraint" )
+        -mi "约束方向" ( "performOrientConstraint 0" )
+        -mi "约束缩放" ( "ScaleConstraint" )
+        -mi "约束目标" ( "AimConstraint" )
+        -mi "约束极向量" ( "PoleVectorConstraint" )
+        -mi "多边形上的约束点" ( "PointOnPolyConstraint" )
+        -mi "约束几何体" ( "GeometryConstraint" )
+        -mi "约束法线" ( "performNormalConstraint 0" )
+    ;
+
+} 
